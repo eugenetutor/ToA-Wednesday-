@@ -1,6 +1,6 @@
 public class Lesson2 {
     public static void main(String[] args) {
-//       int[] arr = {0,1,3,23,3,3,4,2,34,45,5};
+       int[] arr = {0,1,3,23,3,3,4,2,34,45,5};
        test3();
     }
 
