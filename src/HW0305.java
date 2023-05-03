@@ -4,7 +4,7 @@ public class HW0305 {
                 new Song("пісня 1", 311),
                 new Song("пісня 2", 214),
                 new Song("пісня 3", 500),
-                new Song("пісня 4", 111)
+                new Song("пісня 4", 1111)
         };
 
         quickSort(songs, 0, songs.length - 1);
