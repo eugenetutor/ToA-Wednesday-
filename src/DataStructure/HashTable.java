@@ -4,16 +4,16 @@ import java.util.*;
 
 public class HashTable {
     public static void main(String[] args) {
-        Hashtable<Integer, Integer> ht = new Hashtable<Integer, Integer>();
+        Hashtable<String, Integer> ht = new Hashtable<String, Integer>();
 
-        ht.put(123,432);
-        ht.put(12,124);
-        ht.put(1,155);
-        ht.put(156,24);
-        ht.put(21,132);
-        ht.put(233,766);
+        ht.put("Віктор",432);
+        ht.put("Марія",124);
+        ht.put("Микола",155);
+        ht.put("Олег",24);
+        ht.put("Леонід",132);
+        ht.put("Василь",766);
 
-        ht.remove(1);
+        ht.remove("Василь");
         System.out.println(ht);
     }
 }
