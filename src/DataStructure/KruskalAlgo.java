@@ -5,19 +5,22 @@ import java.util.Arrays;
 public class KruskalAlgo {
     static class Edge implements Comparable<Edge>{
         int src, dest, weight;
+
         @Override
-        public int compareTo(Edge o) {
-            return 0;
+        public int compareTo(Edge edge) {
+            return this.weight - edge.weight;
         }
     }
+
     int V, E;
     Edge[] edge;
+
 
     public KruskalAlgo(int v, int e) {
         V = v;
         E = e;
         this.edge = new Edge[E];
-        for (int i = 0; i < e; i++) {
+        for(int i = 0; i < e; i++){
             edge[i] = new Edge();
         }
     }
@@ -25,12 +28,13 @@ public class KruskalAlgo {
     int find(int[] parent, int i){
         if(parent[i] == -1)
             return i;
-        return  find(parent, parent[i]);
+        return find(parent, parent[i]);
     }
+
 
     void Union(int[] parent, int x, int y){
         int xset = find(parent, x);
-        int yset = find(parent,y);
+        int yset = find(parent, y);
         parent[xset] = yset;
     }
 
@@ -42,21 +46,23 @@ public class KruskalAlgo {
         Arrays.sort(edge);
         int[] parent = new int[V];
         Arrays.fill(parent, -1);
-        while (e < V - 1){
-            Edge next_edge = edge[i++];
-            int x = find(parent, next_edge.src);
-            int y = find(parent, next_edge.dest);
+        while(e < V-1){
+            Edge nextEdge = edge[i++];
+            int x = find(parent, nextEdge.src);
+            int y = find(parent, nextEdge.dest);
 
             if(x != y){
-                result[e++] = next_edge;
+                result[e++] = nextEdge;
                 Union(parent, x, y);
             }
         }
-        System.out.println("Minimum spanning tree: ");
+
+        System.out.println("Kruskal algoritm result: ");
         for (int j = 0; j < e; j++) {
-            System.out.println(result[j].src + " -- "+ result[j].dest + " weight:" + result[j].weight);
+            System.out.println(result[j].src + " -- "+ result[j].dest+ " weight: "+result[j].weight);
         }
     }
+
 
     public static void main(String[] args) {
         int V  = 7;
